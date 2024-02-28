@@ -40,7 +40,7 @@ namespace SportsPro.Controllers
         {
             ViewBag.Action = "Add";
 
-            return View("Edit", new Technician());
+            return View("AddEdit", new Technician());
         }
 
         //Get method for the edit view

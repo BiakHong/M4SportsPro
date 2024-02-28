@@ -12,7 +12,7 @@ using SportsPro.Models;
 namespace SportsPro.Migrations
 {
     [DbContext(typeof(ProductList))]
-    [Migration("20240131215405_Initial")]
+    [Migration("20240227041934_Initial")]
     partial class Initial
     {
         /// <inheritdoc />

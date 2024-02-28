@@ -1,4 +1,10 @@
-﻿<!DOCTYPE html>
+﻿@{
+    string controller =
+        ViewContext.RouteData.Values["controller"].ToString();
+    string action =
+        ViewContext.RouteData.Values["action"].ToString();
+}
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -9,8 +15,8 @@
     <link rel="stylesheet" href="~/SportsPro.styles.css" asp-append-version="true" />
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light  bg-primary border-bottom box-shadow mb-3">
+    <header class="jumbotron bg-primary">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark border-bottom box-shadow mb-3">
             <div class="container-fluid ">
                 <a class="navbar-brand text-white" asp-area="" asp-controller="Home" asp-action="Index">SportsPro</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -20,27 +26,35 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between ">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item active">
-                            <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link  @(controller =="Home" && action =="Index" ? "active" : "")"
+                               asp-controller="Home" asp-action="Index" asp-area="">Home</a>
                         </li>
                         <li class="nav-item active">
-                            <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Index">Products</a>
+                            <a class="nav-link  @(controller =="Product" && action =="List" ? "active" : "")"
+                               asp-controller="Product" asp-action="List" asp-area="">Products</a>
                         </li>
                         <li class="nav-item active">
-                            <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Index">Technicians</a>
+                            <a class="nav-link  @(controller =="Technician" && action =="List" ? "active" : "")"
+                               asp-controller="Technician" asp-action="List" asp-area="">Technicians</a>
                         </li>
                         <li class="nav-item active">
-                            <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Index">Customers</a>
+                           
+                            <a class="nav-link  @(controller =="Customer" && action =="List" ? "active" : "")"
+                               asp-controller="Customer" asp-action="List" asp-area="">Customers</a>
                         </li>
                         <li class="nav-item active">
-                            <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Index">Incidents</a>
+                            <a class="nav-link  @(controller =="Incident" && action =="Index" ? "active" : "")"
+                               asp-controller="Incident" asp-action="Index" asp-area="">Incidents</a>
                         </li>
                         <li class="nav-item active">
-                            <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Index">Registrations</a>
+                            <a class="nav-link  @(controller =="Home" && action =="Registration" ? "active" : "")"
+                               asp-controller="Home" asp-action="Registration" asp-area="">Registrations</a>
                         </li>
                     </ul>
                     <ul class="navbar-nav active">
                         <li class="nav-item">
-                            <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Index">About</a>
+                            <a class="nav-link  @(controller =="Home" && action =="About" ? "active" : "")"
+                               asp-controller="Home" asp-action="About" asp-area="">About</a>
                         </li>
                     </ul>
                 </div>

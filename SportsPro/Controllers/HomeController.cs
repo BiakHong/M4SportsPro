@@ -21,15 +21,15 @@ namespace SportsPro.Controllers
         {
             return View();
         }
-        public IActionResult Customers()
+        public IActionResult Customer()
         {
             return View();
         }
-        public IActionResult Incidents()
+        public IActionResult Incident()
         {
             return View();
         }
-        public IActionResult Registrations()
+        public IActionResult Registration()
         {
             return View();
         }
