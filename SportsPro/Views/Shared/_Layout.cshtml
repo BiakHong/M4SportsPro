@@ -4,6 +4,7 @@
     string action =
         ViewContext.RouteData.Values["action"].ToString();
 }
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -63,6 +64,12 @@
     </header>
     <div class="container">
         <main role="main" class="pb-3">
+            @if (TempData["SuccessMessage"] != null)
+            {
+                <div class="alert alert-success bg-info .text-white text-center p-3 " role="alert">
+                    <h4 class="mb-0 text-light"> @TempData["SuccessMessage"]</h4>
+                </div>
+            }
             @RenderBody()
         </main>
     </div>

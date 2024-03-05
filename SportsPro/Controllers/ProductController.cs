@@ -13,6 +13,7 @@ namespace SportsPro.Controllers
 
 
 
+
         public IActionResult List()
         {
             var products = _context.Products.ToList();
@@ -39,7 +40,10 @@ namespace SportsPro.Controllers
         {
             if (ModelState.IsValid)
             {
-                return Save(product);
+                TempData["SuccessMessage"]  = $"{product.Name} was added.";
+                Save(product);
+                return RedirectToAction("List");
+               
             }
             else
             {
@@ -61,10 +65,15 @@ namespace SportsPro.Controllers
             if (ModelState.IsValid)
             {
                 if (product.Id == 0)
+                {
+                    
+
                     _context.Products.Add(product);
+                }
                 else
                     _context.Products.Update(product);
                 _context.SaveChanges();
+                TempData["SuccessMessage"] = $"{product.Name} was updated.";
                 return RedirectToAction("List", "Product");
             }
             else
@@ -115,6 +124,7 @@ namespace SportsPro.Controllers
             {
                 return BadRequest();
             }
+            TempData["SuccessMessage"] = "Product Deleted successfully.";
             _context.Products.Remove(product);
             _context.SaveChanges();
             return RedirectToAction("List", "Product");
